@@ -33,4 +33,4 @@ multi_strategy:
     flow: [researcher, writer, reviewer]
 router_strategy:
   enabled: true
-  route_candidates: [single, multi, docs_qa, data_analysis, web_research]
+  route_candidates: [single, multi]

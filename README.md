@@ -277,7 +277,7 @@ The benchmark does not auto-grade results in v1.
 Instead, each raw JSON contains empty manual evaluation fields:
 
 - for `single` and `multi`: overall score, correctness, completeness, efficiency, pass/fail, notes
-- for `router`: route quality and notes
+- for `router`: overall score, route quality, and notes
 
 The source of truth for manual evaluation is the raw JSON, not the aggregated CSV.
 

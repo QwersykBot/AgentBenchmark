@@ -1,0 +1,10 @@
+2026-03-12T09:14:07Z api.checkout accepted order_id=ord_1842 customer_id=cus_77 amount_cents=12900
+2026-03-12T09:14:07Z gateway.charge committed order_id=ord_1842 provider_ref=ch_0001 idempotency_key=charge:ord_1842
+2026-03-12T09:14:22Z api.checkout timeout_after_commit order_id=ord_1842 retry_scheduled=true
+2026-03-12T09:15:10Z retry_worker.start order_id=ord_1842 attempt=1 idempotency_key=retry:ord_1842:1
+2026-03-12T09:15:11Z gateway.charge committed order_id=ord_1842 provider_ref=ch_0002 idempotency_key=retry:ord_1842:1
+2026-03-12T09:15:11Z finance.duplicate_charge_detected order_id=ord_1842 provider_refs=ch_0001,ch_0002
+2026-03-12T09:17:44Z support.ticket_opened order_id=ord_1842 reason="customer saw two pending card charges"
+2026-03-12T11:02:05Z staging.retry_replay order_id=ord_1842 attempt=1 idempotency_key=charge:ord_1842 provider_ref=ch_0001 reused_existing_charge=true
+2026-03-12T11:02:05Z reconciliation.state_transition order_id=ord_1842 from=retry_scheduled to=pending_manual_review reason="provider_reference_already_seen"
+2026-03-12T11:02:06Z oncall.note order_id=ord_1842 detail="duplicate-charge prevention looks fixed in staging, but order still does not settle to paid"

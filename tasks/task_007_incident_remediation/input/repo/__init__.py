@@ -1,0 +1,1 @@
+"""Payment incident remediation fixture."""

@@ -31,4 +31,4 @@ multi_strategy:
     flow: [analyst, writer, reviewer]
 router_strategy:
   enabled: true
-  route_candidates: [single, multi, data_analysis]
+  route_candidates: [single, multi]

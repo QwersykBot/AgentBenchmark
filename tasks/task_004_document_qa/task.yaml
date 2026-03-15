@@ -31,4 +31,4 @@ multi_strategy:
     flow: [retriever, synthesizer, reviewer]
 router_strategy:
   enabled: true
-  route_candidates: [single, multi, docs_qa]
+  route_candidates: [single, multi]

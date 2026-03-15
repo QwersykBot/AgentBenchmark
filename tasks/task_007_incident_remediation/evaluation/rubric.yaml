@@ -1,0 +1,5 @@
+dimensions:
+  correctness: "Retries reuse the original idempotency key and do not create a second provider charge."
+  completeness: "The root cause, downstream reconciliation impact, code fix, and regression coverage are all addressed."
+  efficiency: "The patch is focused and avoids unrelated refactors."
+  incident_reasoning: "The final answer explains both the retry bug and the reconciliation side effect and includes a safe rollout."

@@ -1,0 +1,8 @@
+Check that:
+- the fix identifies the retry path as the source of duplicate provider charges
+- the fix also catches the downstream reconciliation bug for reused provider references
+- the original idempotency key is preserved on the retry job
+- the retry worker reuses that key instead of minting a new one
+- the regression test proves only one unique charge exists after a timeout-then-retry flow
+- the reconciliation layer settles the order to paid instead of leaving it in pending_manual_review
+- the final answer mentions blast radius and a safe rollout plan

@@ -33,4 +33,4 @@ multi_strategy:
     flow: [triage, responder, reviewer]
 router_strategy:
   enabled: true
-  route_candidates: [single, multi, workflow, docs_qa]
+  route_candidates: [single, multi]

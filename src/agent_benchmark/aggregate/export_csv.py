@@ -21,6 +21,7 @@ def flatten_result(result: SingleMultiRunResult | RouterRunResult) -> Aggregated
             workspace_path=None,
             selected_route=result.selected_route,
             route_confidence=result.route_confidence,
+            manual_score_overall=result.manual_eval.score_overall,
             manual_route_was_good_choice=result.manual_eval.route_was_good_choice,
             notes=result.manual_eval.score_notes,
         )

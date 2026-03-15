@@ -1,0 +1,39 @@
+id: task_007_incident_remediation
+name: Production incident remediation for payment retry and reconciliation
+category: coding
+description: Investigate a payment incident with a retry bug and a downstream reconciliation bug, add regression coverage, and summarize a safe rollout.
+timeout_sec: 1800
+allowed_tools:
+  - list_files
+  - read_file
+  - search_in_files
+  - write_file
+  - run_tests
+  - terminal
+single_strategy:
+  enabled: true
+  temperature: 0.2
+  max_steps: 48
+multi_strategy:
+  enabled: true
+  temperature: 0.2
+  max_steps: 48
+  architecture:
+    type: pipeline
+    agents:
+      - id: investigator
+        role: Read the incident notes, logs, and docs to identify the likely root cause, downstream effects, and affected files.
+        allowed_tools: [list_files, read_file, search_in_files]
+      - id: coder
+        role: Implement the minimal safe end-to-end fix and update regression tests.
+        allowed_tools: [read_file, search_in_files, write_file, run_tests, terminal]
+      - id: reviewer
+        role: Re-check for partial fixes, validate regression coverage, and look for rollback or rollout risk.
+        allowed_tools: [read_file, search_in_files, run_tests, terminal]
+      - id: reporter
+        role: Deliver the final incident summary with root cause, blast radius, code changes, checks, and rollout guidance.
+        allowed_tools: [read_file, search_in_files]
+    flow: [investigator, coder, reviewer, reporter]
+router_strategy:
+  enabled: true
+  route_candidates: [single, multi]

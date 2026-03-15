@@ -35,4 +35,4 @@ router_strategy:
   enabled: true
   temperature: 0.0
   max_steps: 16
-  route_candidates: [single, multi, coding_simple, coding_multi_file]
+  route_candidates: [single, multi]

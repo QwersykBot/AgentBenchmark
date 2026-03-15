@@ -1,0 +1,6 @@
+Expected remediation:
+- Root cause: the timeout path drops the original provider idempotency key, and the retry worker falls back to a new retry-specific key
+- Downstream issue: reconciliation treats a reused provider reference as an anomaly instead of settling the same order to paid
+- Blast radius: orders that timeout after provider commit and are later replayed by the retry worker
+- Fix: preserve and reuse the original idempotency key across retries, and settle reused provider references to paid for the same order
+- Validation: public tests pass and the regression proves one logical order maps to one provider charge and one terminal paid state

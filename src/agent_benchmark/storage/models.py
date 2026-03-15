@@ -42,6 +42,7 @@ class SingleMultiManualEval(BaseModel):
 
 class RouterManualEval(BaseModel):
     filled_by_user: bool = False
+    score_overall: float | None = None
     route_was_good_choice: bool | None = None
     score_notes: str | None = None
 

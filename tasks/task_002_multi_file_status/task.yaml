@@ -33,4 +33,4 @@ multi_strategy:
     flow: [planner, coder, reviewer]
 router_strategy:
   enabled: true
-  route_candidates: [single, multi, coding_multi_file, docs_qa]
+  route_candidates: [single, multi]
